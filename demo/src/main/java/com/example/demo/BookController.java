@@ -40,4 +40,11 @@ public class BookController {
     public void delete(@PathVariable Long id) {
         repo.deleteById(id);
     }
+
+
+    @GetMapping("/search")
+    public List<Book> search(@RequestParam String title) {
+        return repo.findByTitleContainingIgnoreCase(title);
+    }
 }
+
